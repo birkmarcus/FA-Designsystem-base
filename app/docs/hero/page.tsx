@@ -113,7 +113,7 @@ export default function HeroPage() {
             heading="Simple and focused"
             body="Just the essentials."
             primaryCta="Get Started"
-            background="primary"
+            background="surface"
           />
         </div>
       </section>
@@ -129,7 +129,7 @@ export default function HeroPage() {
               Primary Background
             </h3>
             <Hero
-              background="primary"
+              background="surface"
               heading="Stand out with primary background"
               body="Perfect for highlighting important content."
               primaryCta="Learn More"

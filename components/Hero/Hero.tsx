@@ -99,7 +99,7 @@ export const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
     const textColorStyles = cn(
       background === 'primary' && 'text-[var(--color-text-inverse)]',
       background === 'neutral' && 'text-[var(--color-text-primary)]',
-      background === 'surface' && 'text-[var(--color-text-primary)]',
+      background === 'surface' && 'text-[var(--color-text-inverse)]',
     );
 
     const labelColorStyles = cn(

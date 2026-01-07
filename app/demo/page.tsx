@@ -58,7 +58,7 @@ export default function DemoPage() {
 
       {/* Hero Section - Primary Background */}
       <Hero
-        background="primary"
+        background="surface"
         variant="centered"
         size="large"
         heading="Ready to get started?"
