@@ -12,18 +12,6 @@ export default function DocsOverview() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         <Link
-          href="/docs/hero"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Hero
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Hero section component with multiple variants and responsive design.
-          </p>
-        </Link>
-
-        <Link
           href="/docs/buttons"
           className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
         >
@@ -56,6 +44,18 @@ export default function DocsOverview() {
           </h2>
           <p className="text-[var(--color-text-secondary)]">
             Checkbox, Radio, Switch, and CheckboxGroup components.
+          </p>
+        </Link>
+
+        <Link
+          href="/docs/input-fields"
+          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
+        >
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
+            Input Fields
+          </h2>
+          <p className="text-[var(--color-text-secondary)]">
+            InputField component with Input and TextArea types, multiple states, and validation feedback.
           </p>
         </Link>
 
@@ -104,6 +104,42 @@ export default function DocsOverview() {
           </h2>
           <p className="text-[var(--color-text-secondary)]">
             GroupField component for grouping radio buttons or checkboxes.
+          </p>
+        </Link>
+
+        <Link
+          href="/docs/pagination"
+          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
+        >
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
+            Pagination
+          </h2>
+          <p className="text-[var(--color-text-secondary)]">
+            Pagination component with three variants (Default, Simple, Group) and multiple alignment options.
+          </p>
+        </Link>
+
+        <Link
+          href="/docs/carousel-pagination"
+          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
+        >
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
+            Carousel Pagination
+          </h2>
+          <p className="text-[var(--color-text-secondary)]">
+            Carousel pagination components including dots, pagination groups, and navigation arrows.
+          </p>
+        </Link>
+
+        <Link
+          href="/docs/breadcrumbs"
+          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
+        >
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
+            Breadcrumbs
+          </h2>
+          <p className="text-[var(--color-text-secondary)]">
+            Breadcrumb navigation component for showing the current page hierarchy with home icon, pages, and active state.
           </p>
         </Link>
 

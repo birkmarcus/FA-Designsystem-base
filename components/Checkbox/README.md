@@ -84,3 +84,4 @@ const [checked, setChecked] = useState(false);
 - ✅ Screen reader friendly
 - ✅ Semantic HTML (`<input type="checkbox">`)
 
+
