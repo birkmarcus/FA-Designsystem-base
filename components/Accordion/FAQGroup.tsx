@@ -101,6 +101,7 @@ export const FAQGroup = React.forwardRef<HTMLDivElement, FAQGroupProps>(
 
     const containerStyles = cn(
       'flex flex-col gap-4', // 16px gap between items
+      'items-start', // Align items to start
       'w-full',
       className
     );

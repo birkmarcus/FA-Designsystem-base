@@ -154,6 +154,30 @@ export default function DocsOverview() {
             Complete color palette with primitives and semantic tokens.
           </p>
         </Link>
+
+        <Link
+          href="/docs/cta"
+          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
+        >
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
+            CTA
+          </h2>
+          <p className="text-[var(--color-text-secondary)]">
+            Call-to-action component with Vertical, Horizontal, and Newsletter layouts.
+          </p>
+        </Link>
+
+        <Link
+          href="/docs/faq"
+          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
+        >
+          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
+            FAQ
+          </h2>
+          <p className="text-[var(--color-text-secondary)]">
+            Frequently Asked Questions component with header section and collapsible FAQ items.
+          </p>
+        </Link>
       </div>
 
       <div className="mt-12 p-6 bg-[var(--color-background-surfaceTertiary)] rounded-lg">

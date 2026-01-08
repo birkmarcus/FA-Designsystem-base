@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Tooltip, QuestionCircleIcon, TooltipBodyCopy } from '@/components/Tooltip';
+import { Tooltip, QuestionCircleIcon, TooltipBodyCopy, TooltipModal } from '@/components/Tooltip';
 import { Button } from '@/components/Button';
 import { IconButton } from '@/components/IconButton';
 
@@ -294,6 +294,109 @@ export default function TooltipsPage() {
         </div>
       </section>
 
+      {/* Tooltip Modal */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-6">
+          Tooltip Modal
+        </h2>
+        <div className="space-y-8">
+          <div>
+            <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">
+              Basic Modal
+            </h3>
+            <p className="text-sm text-[var(--color-text-secondary)] mb-4">
+              Click the question mark icon to open a modal dialog with detailed information.
+            </p>
+            <div className="flex flex-wrap items-center gap-8">
+              <TooltipModal
+                heading="Heading"
+                content={
+                  <>
+                    <p className="mb-0">
+                      Lorem ipsum dolor sit amet consectetur. Et commodo sed nulla quis quisque turpis imperdiet. 
+                      Viverra morbi auctor quis pretium interdum arcu blandit in. At egestas varius accumsan dui in 
+                      curabitur semper arcu id. Amet ornare commodo amet magna fringilla egestas.
+                    </p>
+                    <p className="mb-0 text-[14px]">&nbsp;</p>
+                    <p className="mb-0">
+                      Lobortis aliquet ut quis id sed. Egestas iaculis nulla nibh magna id sapien sollicitudin sed. 
+                      Malesuada nulla cras ac nulla. A commodo ornare cras pretium pellentesque risus purus in facilisis.
+                    </p>
+                  </>
+                }
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">
+              Different Icon Sizes
+            </h3>
+            <div className="flex flex-wrap items-center gap-8">
+              <div className="flex flex-col items-center gap-2">
+                <TooltipModal
+                  heading="Small Icon"
+                  content="This modal uses a small icon trigger."
+                  iconSize="small"
+                />
+                <span className="text-xs text-[var(--color-text-tertiary)]">Small</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <TooltipModal
+                  heading="Medium Icon"
+                  content="This modal uses a medium icon trigger."
+                  iconSize="medium"
+                />
+                <span className="text-xs text-[var(--color-text-tertiary)]">Medium</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <TooltipModal
+                  heading="Large Icon"
+                  content="This modal uses a large icon trigger."
+                  iconSize="large"
+                />
+                <span className="text-xs text-[var(--color-text-tertiary)]">Large</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">
+              Controlled Modal
+            </h3>
+            <div className="flex flex-wrap items-center gap-4">
+              <TooltipModal
+                heading="Controlled Modal"
+                content="This modal is controlled by the button below."
+                open={controlledOpen}
+                onOpenChange={setControlledOpen}
+              />
+              
+              <Button
+                variant="primary"
+                size="medium"
+                onClick={() => setControlledOpen(!controlledOpen)}
+              >
+                {controlledOpen ? 'Close' : 'Open'} Modal
+              </Button>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">
+              Disabled Modal
+            </h3>
+            <div className="flex flex-wrap items-center gap-8">
+              <TooltipModal
+                heading="Disabled Modal"
+                content="This modal is disabled and won't open."
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Usage Examples */}
       <section className="mb-16">
         <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-6">
@@ -357,6 +460,27 @@ import { Button } from '@/components/Button';
 >
   <Button variant="primary">Hover Me</Button>
 </Tooltip>`}
+              </code>
+            </pre>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">
+              Tooltip Modal Usage
+            </h3>
+            <pre className="bg-[var(--color-background-surface)] p-4 rounded-lg overflow-x-auto text-sm">
+              <code className="text-[var(--color-text-primary)]">
+{`import { TooltipModal } from '@/components/Tooltip';
+
+<TooltipModal
+  heading="Information"
+  content={
+    <>
+      <p>This is detailed information displayed in a modal.</p>
+      <p>You can include multiple paragraphs or any React content.</p>
+    </>
+  }
+/>`}
               </code>
             </pre>
           </div>

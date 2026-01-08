@@ -23,55 +23,83 @@ const isNavGroup = (section: NavSection): section is NavGroup => {
 
 const navSections: NavSection[] = [
   { label: 'Overview', href: '/docs' },
-  { label: 'Buttons', href: '/docs/buttons' },
-  { label: 'Tabs', href: '/docs/tabs' },
-  { label: 'Badges', href: '/docs/badges' },
-  { label: 'Banner', href: '/docs/banner' },
-  { label: 'Tooltips', href: '/docs/tooltips' },
-  { label: 'Icon Wrapper', href: '/docs/icon-wrapper' },
-  { label: 'Image Format', href: '/docs/image-format' },
-  { label: 'Content Card', href: '/docs/content-card' },
-  { label: 'Accordions', href: '/docs/accordions' },
   {
-    label: 'Input Fields, Groups and Items',
+    label: 'Atoms',
     items: [
-      { label: 'Form Groups', href: '/docs/form-groups' },
-      { label: 'List Items', href: '/docs/list-items' },
-      { label: 'Form Inputs', href: '/docs/form-inputs' },
-      { label: 'Input Fields', href: '/docs/input-fields' },
-      { label: 'Group Fields', href: '/docs/group-fields' },
-      { label: 'Search Fields', href: '/docs/search-fields' },
-    ],
-  },
-  { label: 'Dropdowns', href: '/docs/dropdowns' },
-  { label: 'Text Block', href: '/docs/text-block' },
-  {
-    label: 'Pagination',
-    items: [
-      { label: 'Pagination', href: '/docs/pagination' },
+      { label: 'Accordions', href: '/docs/accordions' },
+      { label: 'Badges', href: '/docs/badges' },
+      { label: 'Banner', href: '/docs/banner' },
+      { label: 'Breadcrumbs', href: '/docs/breadcrumbs' },
+      { label: 'Buttons', href: '/docs/buttons' },
       { label: 'Carousel Pagination', href: '/docs/carousel-pagination' },
+      { label: 'Content Card', href: '/docs/content-card' },
+      { label: 'Dropdowns', href: '/docs/dropdowns' },
+      { label: 'Form Groups', href: '/docs/form-groups' },
+      { label: 'Form Inputs', href: '/docs/form-inputs' },
+      { label: 'Group Fields', href: '/docs/group-fields' },
+      { label: 'Icon Wrapper', href: '/docs/icon-wrapper' },
+      { label: 'Image Format', href: '/docs/image-format' },
+      { label: 'Input Fields', href: '/docs/input-fields' },
+      { label: 'List Items', href: '/docs/list-items' },
+      { label: 'Pagination', href: '/docs/pagination' },
+      { label: 'Search Fields', href: '/docs/search-fields' },
+      { label: 'Tabs', href: '/docs/tabs' },
+      { label: 'Text Block', href: '/docs/text-block' },
+      { label: 'Tooltips', href: '/docs/tooltips' },
     ],
   },
-  { label: 'Breadcrumbs', href: '/docs/breadcrumbs' },
-  { label: 'Colors', href: '/docs/colors' },
+  {
+    label: 'Style',
+    items: [
+      { label: 'Colors', href: '/docs/colors' },
+      { label: 'Typography', href: '/docs/typography' },
+      { label: 'Sizing and Grid', href: '/docs/sizing-and-grid' },
+    ],
+  },
+  {
+    label: 'Web Components',
+    items: [
+      { label: 'Content', href: '/docs/content' },
+      { label: 'CTA', href: '/docs/cta' },
+      { label: 'FAQ', href: '/docs/faq' },
+      { label: 'Hero', href: '/docs/hero' },
+      { label: 'Info', href: '/docs/info' },
+      { label: 'Navigation Cards', href: '/docs/navigation-cards' },
+      { label: 'Tab Menu', href: '/docs/tab-menu' },
+    ],
+  },
 ];
 
 export function DocsSidebar() {
   const pathname = usePathname();
-  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
-
-  // Initialize expanded groups based on active pathname
-  useEffect(() => {
-    const groupsToExpand = new Set<string>();
+  
+  // Initialize all groups as expanded by default for consistency across all pages
+  const initializeExpandedGroups = () => {
+    const allGroups = new Set<string>();
     navSections.forEach((section) => {
       if (isNavGroup(section)) {
-        const hasActiveItem = section.items.some((item) => pathname === item.href);
-        if (hasActiveItem) {
-          groupsToExpand.add(section.label);
-        }
+        allGroups.add(section.label);
       }
     });
-    setExpandedGroups(groupsToExpand);
+    return allGroups;
+  };
+
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(initializeExpandedGroups);
+
+  // Ensure groups with active items stay expanded when navigating
+  useEffect(() => {
+    setExpandedGroups((prev) => {
+      const next = new Set(prev);
+      navSections.forEach((section) => {
+        if (isNavGroup(section)) {
+          const hasActiveItem = section.items.some((item) => pathname === item.href);
+          if (hasActiveItem) {
+            next.add(section.label);
+          }
+        }
+      });
+      return next;
+    });
   }, [pathname]);
 
   const toggleGroup = (groupLabel: string) => {

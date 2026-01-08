@@ -16,6 +16,10 @@ A question mark icon in a circle, commonly used as a tooltip trigger.
 
 A specialized tooltip variant designed for inline use within body copy. Displays text with an inline question mark icon that triggers the tooltip.
 
+### TooltipModal
+
+A tooltip variant that opens a modal dialog instead of a tooltip popup. Uses a question circle icon as the trigger. Clicking the icon opens a modal with the provided heading and content. Ideal for displaying longer, more detailed information.
+
 ## Props
 
 ### Tooltip Props
@@ -51,6 +55,19 @@ Extends `TooltipProps` (excluding `children`) with:
 | `text` | `string` | Required | Text content that will have the tooltip trigger inline |
 | `iconSize` | `'small' \| 'medium' \| 'large'` | `'small'` | Size of the question circle icon |
 | `textClassName` | `string` | - | Additional CSS classes for the text wrapper |
+
+### TooltipModal Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `heading` | `string` | - | Modal heading |
+| `content` | `React.ReactNode` | Required | Modal content - can be a string or React node |
+| `iconSize` | `'small' \| 'medium' \| 'large'` | `'medium'` | Size of the question circle icon |
+| `open` | `boolean` | - | Whether modal is open (controlled) |
+| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes (for controlled usage) |
+| `triggerClassName` | `string` | - | Additional CSS classes for trigger button |
+| `modalClassName` | `string` | - | Additional CSS classes for modal container |
+| `disabled` | `boolean` | `false` | Whether modal is disabled |
 
 ## Usage
 
@@ -151,6 +168,39 @@ const [open, setOpen] = useState(false);
 </Tooltip>
 ```
 
+### Tooltip Modal
+
+```tsx
+import { TooltipModal } from '@/components/Tooltip';
+
+<TooltipModal
+  heading="Information"
+  content={
+    <>
+      <p>This is detailed information displayed in a modal.</p>
+      <p>You can include multiple paragraphs or any React content.</p>
+    </>
+  }
+/>
+```
+
+### Controlled Tooltip Modal
+
+```tsx
+const [open, setOpen] = useState(false);
+
+<TooltipModal
+  heading="Controlled Modal"
+  content="This modal is controlled programmatically"
+  open={open}
+  onOpenChange={setOpen}
+/>
+
+<Button onClick={() => setOpen(!open)}>
+  {open ? 'Close' : 'Open'} Modal
+</Button>
+```
+
 ## Design Tokens Used
 
 - `--color-text-tertiary` - Default text color for question circle icon
@@ -188,4 +238,6 @@ The tooltip automatically positions itself with a 12px gap from the trigger elem
 3. **Use TooltipBodyCopy for inline text** - Provides better UX for body copy contexts
 4. **Consider delay for hover triggers** - Prevents accidental tooltip activation
 5. **Use controlled mode for interactive tooltips** - When tooltip state needs to be managed programmatically
+6. **Use TooltipModal for longer content** - When you need to display detailed information that doesn't fit well in a tooltip, use the modal variant
+7. **Consider user context** - Tooltips are great for quick hints, modals are better for detailed explanations
 

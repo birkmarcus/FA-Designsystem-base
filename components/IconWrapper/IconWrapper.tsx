@@ -87,7 +87,7 @@ export const IconWrapper = React.forwardRef<HTMLDivElement, IconWrapperProps>(
     );
 
     const iconSizeStyles = cn(
-      size === 'small' && 'w-4 h-4', // 16px
+      size === 'small' && 'w-8 h-8', // 32px
       size === 'medium' && 'w-6 h-6', // 24px
       size === 'large' && 'w-8 h-8', // 32px
     );

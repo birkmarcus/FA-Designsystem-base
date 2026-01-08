@@ -8,8 +8,8 @@ export default function DocsLayout({
   return (
     <div className="flex min-h-screen">
       <DocsSidebar />
-      <main className="flex-1 bg-[var(--color-background-surface)]">
-        <div className="max-w-7xl mx-auto p-12">
+      <main className="flex-1 bg-[var(--color-background-surfaceTertiary)]">
+        <div className="max-w-7xl mx-auto p-12 bg-[var(--color-background-surface)]">
           {children}
         </div>
       </main>

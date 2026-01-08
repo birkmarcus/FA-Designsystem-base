@@ -110,7 +110,7 @@ export const FAQItem = React.forwardRef<HTMLButtonElement, FAQItemProps>(
       'w-full',
       'bg-[var(--color-background-surface)]', // White background
       'border border-[var(--color-border-default)]', // Full border
-      'rounded-lg', // 8px border radius
+      'rounded-none', // 0px border radius
       'text-left',
       'transition-colors',
       'duration-[var(--motion-primitive-duration-base)]',
