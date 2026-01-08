@@ -80,8 +80,8 @@ export const NavigationCards = React.forwardRef<HTMLDivElement, NavigationCardsP
     const containerStyles = cn(
       'flex flex-col',
       'bg-[var(--color-background-surface)]',
-      'p-16', // 64px padding
-      'gap-16', // 64px gap
+      'p-4 md:p-16', // 16px mobile, 64px desktop padding
+      'gap-4 md:gap-16', // 16px mobile, 64px desktop gap
       'items-center',
       'w-full',
       'max-w-[1280px]',
@@ -91,7 +91,7 @@ export const NavigationCards = React.forwardRef<HTMLDivElement, NavigationCardsP
     // Text section styles
     const textSectionStyles = cn(
       'flex flex-col',
-      'gap-8', // 32px gap
+      'gap-4 md:gap-8', // 16px mobile, 32px desktop gap
       'items-center',
       'max-w-[888px]',
       'w-full',
@@ -100,14 +100,14 @@ export const NavigationCards = React.forwardRef<HTMLDivElement, NavigationCardsP
 
     // Cards wrapper styles
     const cardsWrapperStyles = cn(
-      'flex flex-nowrap',
-      'gap-8', // 32px gap
+      'flex flex-wrap md:flex-nowrap', // Wrap on mobile, nowrap on desktop
+      'gap-4 md:gap-8', // 16px mobile, 32px desktop gap
       'items-center',
       'justify-start',
       'w-full',
-      // Height constraints for specific variants
-      cardVariant === 'wrapped' && columns === '4' && 'h-[354px]',
-      cardVariant === 'wrapped' && columns === '3' && 'h-[409px]',
+      // Height constraints for specific variants (only on desktop)
+      cardVariant === 'wrapped' && columns === '4' && 'md:h-[354px]',
+      cardVariant === 'wrapped' && columns === '3' && 'md:h-[409px]',
       cardVariant === 'default' && columns === '3' && 'h-auto',
       cardVariant === 'full' && columns === '3' && 'h-auto',
     );
@@ -124,12 +124,12 @@ export const NavigationCards = React.forwardRef<HTMLDivElement, NavigationCardsP
               </p>
             )}
             {heading && (
-              <p className="font-primary font-semibold text-[48px] leading-[48px] text-[var(--color-text-primary)] w-full">
+              <p className="font-primary font-semibold text-2xl md:text-[48px] leading-[32px] md:leading-[48px] text-[var(--color-text-primary)] w-full">
                 {heading}
               </p>
             )}
             {subheading && (
-              <p className="font-primary font-normal text-[24px] leading-[30px] text-[var(--color-text-primary)] w-full">
+              <p className="font-primary font-normal text-lg md:text-[24px] leading-6 md:leading-[30px] text-[var(--color-text-primary)] w-full">
                 {subheading}
               </p>
             )}
@@ -137,7 +137,7 @@ export const NavigationCards = React.forwardRef<HTMLDivElement, NavigationCardsP
 
           {/* Body text */}
           {body && (
-            <p className="font-primary font-normal text-[18px] leading-6 text-[var(--color-text-primary)] w-full">
+            <p className="font-primary font-normal text-base md:text-[18px] leading-5 md:leading-6 text-[var(--color-text-primary)] w-full">
               {body}
             </p>
           )}

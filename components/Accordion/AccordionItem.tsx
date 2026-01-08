@@ -72,9 +72,10 @@ export const AccordionItem = React.forwardRef<HTMLButtonElement, AccordionItemPr
   ) => {
     const buttonStyles = cn(
       'flex flex-col items-start justify-center',
-      'gap-2', // 8px gap between toggle and content
+      'gap-0', // 0px gap between toggle and content
       'px-4 py-2', // 16px horizontal, 8px vertical
       'w-full',
+      'h-fit', // fit-content height
       'text-left',
       'transition-colors',
       'duration-[var(--motion-primitive-duration-base)]',

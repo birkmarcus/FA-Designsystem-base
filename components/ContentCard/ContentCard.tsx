@@ -141,7 +141,8 @@ export const ContentCard = React.forwardRef<HTMLDivElement, ContentCardProps>(
     // Base container styles
     const containerStyles = cn(
       'flex flex-col',
-      'min-w-[244px] w-[380px]',
+      'w-full max-w-[380px]', // Full width on mobile, max 380px on desktop
+      'min-w-0 md:min-w-[244px]', // No min-width on mobile, 244px on desktop
       variant === 'default' && [
         'bg-[var(--color-background-surface)]',
         'border border-[var(--color-border-default)]',

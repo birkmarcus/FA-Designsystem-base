@@ -102,6 +102,7 @@ export const AccordionGroup = React.forwardRef<HTMLDivElement, AccordionGroupPro
     const containerStyles = cn(
       'flex flex-col',
       'w-full',
+      'rounded-none',
       className
     );
 

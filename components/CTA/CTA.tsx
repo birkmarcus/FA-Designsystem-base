@@ -223,7 +223,8 @@ export const CTA = React.forwardRef<HTMLDivElement, CTAProps>(
             'basis-0 flex flex-col',
             gap,
             'grow items-start',
-            'max-w-[520px] min-w-[327px]'
+            'max-w-[520px]',
+            'min-w-0 md:min-w-[327px]' // No min-width on mobile, 327px on desktop
           )}>
             {/* Top Section */}
             <div className="flex flex-col gap-2 items-center w-full">
@@ -316,7 +317,7 @@ export const CTA = React.forwardRef<HTMLDivElement, CTAProps>(
           {/* Form Section */}
           <form
             onSubmit={handleSubmit}
-            className={cn('flex flex-col', formGap, 'items-start w-[300px]')}
+            className={cn('flex flex-col', formGap, 'items-start w-full max-w-[300px]')}
           >
             {/* Form Heading */}
             {showFormHeading && (formHeading || formHelpText) && (

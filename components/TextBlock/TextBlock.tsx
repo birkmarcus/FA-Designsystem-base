@@ -91,7 +91,7 @@ export const TextBlock: React.FC<TextBlockProps> = ({
   className,
 }) => {
   return (
-    <div className={cn('flex flex-col gap-8 items-start w-[545px]', className)}>
+    <div className={cn('flex flex-col gap-4 md:gap-8 items-start w-full max-w-[545px]', className)}>
       {/* Top section: Label, Heading, Subheading */}
       <div className="flex flex-col gap-2 items-start w-full">
         {showLabel && label && (

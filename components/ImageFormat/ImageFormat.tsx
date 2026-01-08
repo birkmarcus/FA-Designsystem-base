@@ -65,14 +65,15 @@ export const ImageFormat = React.forwardRef<HTMLDivElement, ImageFormatProps>(
   ) => {
     const containerStyles = cn(
       'relative overflow-hidden',
+      'w-full max-w-[456px]', // Full width on mobile, max 456px on desktop
       format === 'portrait' && [
-        'w-[456px] h-[608px]', // Portrait: 456px × 608px
+        'aspect-[3/4]', // Portrait: 3:4 ratio (456px × 608px)
       ],
       format === 'landscape' && [
-        'w-[456px] h-[256px]', // Landscape: 456px × 256px
+        'aspect-[16/9]', // Landscape: 16:9 ratio (456px × 256px)
       ],
       format === 'square' && [
-        'w-[456px] h-[456px]', // Square: 456px × 456px
+        'aspect-square', // Square: 1:1 ratio (456px × 456px)
       ],
       className
     );

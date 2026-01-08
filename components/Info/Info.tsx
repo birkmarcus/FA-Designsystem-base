@@ -92,8 +92,8 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
     const containerStyles = cn(
       'flex flex-col',
       'bg-[var(--color-background-surface)]',
-      'p-16', // 64px padding
-      'gap-16', // 64px gap
+      'p-4 md:p-16', // 16px mobile, 64px desktop padding
+      'gap-4 md:gap-16', // 16px mobile, 64px desktop gap
       className
     );
 
@@ -105,18 +105,18 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
       textAlignClass,
       alignment === 'center' && 'items-center',
       alignment === 'left' && 'items-start',
-      'gap-8', // 32px gap
+      'gap-4 md:gap-8', // 16px mobile, 32px desktop gap
     );
 
     // Items container styles
     const itemsContainerStyles = cn(
       'flex',
-      layout === 'stats' && alignment === 'center' ? 'flex-nowrap' : 'flex-wrap',
+      layout === 'stats' && alignment === 'center' ? 'flex-wrap md:flex-nowrap' : 'flex-wrap', // Wrap on mobile, nowrap on desktop for stats-center
       'w-full',
       layout === 'card-and-cta' && 'gap-4', // 16px gap
-      layout === 'list-items' && 'gap-8', // 32px gap
+      layout === 'list-items' && 'gap-4 md:gap-8', // 16px mobile, 32px desktop gap
       layout === 'link-cards' && 'gap-4', // 16px gap
-      layout === 'stats' && 'gap-8', // 32px gap
+      layout === 'stats' && 'gap-4 md:gap-8', // 16px mobile, 32px desktop gap
       alignment === 'center' && 'justify-center',
       alignment === 'left' && 'justify-start',
       alignment === 'grid' && 'justify-start',
@@ -147,10 +147,10 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
           </div>
 
           {/* Stats Grid with Image */}
-          <div className="flex flex-wrap gap-8 items-center w-full">
+          <div className="flex flex-wrap gap-4 md:gap-8 items-center w-full">
             {/* Image */}
             {imageSrc && (
-              <div className="basis-0 grow min-w-[327px] aspect-[456/256] h-[184px] relative overflow-hidden">
+              <div className="basis-0 grow min-w-0 md:min-w-[327px] aspect-[456/256] h-auto md:h-[184px] relative overflow-hidden">
                 <ImageFormat
                   src={imageSrc}
                   alt={imageAlt || 'Info image'}
@@ -162,9 +162,9 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
 
             {/* Stats Items */}
             <div className="flex flex-col gap-8 grow min-w-0">
-              {/* First row */}
-              {items.length > 0 && (
-                <div className="flex flex-wrap gap-8 items-start w-full">
+            {/* First row */}
+            {items.length > 0 && (
+              <div className="flex flex-wrap gap-4 md:gap-8 items-start w-full">
                   {items.slice(0, 2).map((item, index) => (
                     <InfoItem
                       key={index}
@@ -178,7 +178,7 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
 
               {/* Second row */}
               {items.length > 2 && (
-                <div className="flex flex-wrap gap-8 items-start w-full">
+                <div className="flex flex-wrap gap-4 md:gap-8 items-start w-full">
                   {items.slice(2, 4).map((item, index) => (
                     <InfoItem
                       key={index + 2}
@@ -220,10 +220,10 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
           </div>
 
           {/* List Items Grid */}
-          <div className="flex flex-col gap-16 items-start max-w-[888px] w-full">
+          <div className="flex flex-col gap-4 md:gap-16 items-start max-w-[888px] w-full">
             {/* First row */}
             {items.length > 0 && (
-              <div className="flex flex-wrap gap-8 items-start w-full">
+              <div className="flex flex-wrap gap-4 md:gap-8 items-start w-full">
                 {items.slice(0, 2).map((item, index) => (
                   <InfoItem
                     key={index}
@@ -236,7 +236,7 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
 
             {/* Second row */}
             {items.length > 2 && (
-              <div className="flex flex-wrap gap-8 items-start w-full">
+              <div className="flex flex-wrap gap-4 md:gap-8 items-start w-full">
                 {items.slice(2, 4).map((item, index) => (
                   <InfoItem
                     key={index + 2}
@@ -268,9 +268,9 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
     if (layout === 'link-cards' && alignment === 'left') {
       return (
         <div ref={ref} className={cn(containerStyles, 'h-auto items-center justify-center')}>
-          <div className="flex flex-wrap gap-16 items-center w-full">
+          <div className="flex flex-wrap gap-4 md:gap-16 items-center w-full">
             {/* Text Section */}
-            <div className="basis-0 flex flex-col grow items-start max-w-[888px] min-w-[327px] gap-8">
+            <div className="basis-0 flex flex-col grow items-start max-w-[888px] min-w-0 md:min-w-[327px] gap-4 md:gap-8">
               {heading && (
                 <p className="font-primary font-semibold text-2xl leading-[30px] text-[var(--color-text-primary)] w-full">
                   {heading}
@@ -284,7 +284,7 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
             </div>
 
             {/* Link Cards */}
-            <div className="basis-0 flex flex-nowrap gap-4 grow items-start min-w-0">
+            <div className="basis-0 flex flex-wrap md:flex-nowrap gap-4 grow items-start min-w-0">
               {items.map((item, index) => (
                 <InfoItem
                   key={index}

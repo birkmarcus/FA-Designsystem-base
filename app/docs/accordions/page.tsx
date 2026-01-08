@@ -61,7 +61,7 @@ export default function AccordionsPage() {
             <h3 className="text-lg font-medium text-[var(--color-text-secondary)] mb-4">
               Single Items
             </h3>
-            <div className="w-[449px] border border-[var(--color-border-default)] rounded-lg overflow-hidden">
+            <div className="w-[449px] border border-[var(--color-border-default)] overflow-hidden">
               <AccordionItem
                 title="Title"
                 open={openItem1}
@@ -94,7 +94,7 @@ export default function AccordionsPage() {
             <p className="text-sm text-[var(--color-text-tertiary)] mb-4">
               Only one item can be open at a time.
             </p>
-            <div className="w-[449px] border border-[var(--color-border-default)] rounded-lg overflow-hidden">
+            <div className="w-[449px] border border-[var(--color-border-default)] overflow-hidden">
               <AccordionGroup
                 items={accordionItems}
                 allowMultiple={false}
@@ -117,7 +117,7 @@ export default function AccordionsPage() {
             <p className="text-sm text-[var(--color-text-tertiary)] mb-4">
               Multiple items can be open at the same time.
             </p>
-            <div className="w-[449px] border border-[var(--color-border-default)] rounded-lg overflow-hidden">
+            <div className="w-[449px] border border-[var(--color-border-default)] rounded-none overflow-hidden">
               <AccordionGroup
                 items={accordionItems}
                 allowMultiple={true}

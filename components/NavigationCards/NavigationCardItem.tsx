@@ -102,8 +102,9 @@ export const NavigationCardItem = React.forwardRef<HTMLDivElement, NavigationCar
             'border border-[var(--color-border-default)]',
             'rounded-2xl', // 16px
             'overflow-hidden',
-            'min-w-[244px]',
-            columns === '3' ? 'h-[387px]' : 'h-[332px]',
+            'min-w-0 md:min-w-[244px]', // No min-width on mobile, 244px on desktop
+            'h-auto', // Auto height on mobile
+            columns === '3' ? 'md:h-[387px]' : 'md:h-[332px]', // Fixed height only on desktop
             'grow',
             className
           )}
@@ -180,7 +181,7 @@ export const NavigationCardItem = React.forwardRef<HTMLDivElement, NavigationCar
             'border border-[var(--color-border-default)]',
             'rounded-2xl', // 16px
             'overflow-hidden',
-            'min-w-[244px]',
+            'min-w-0 md:min-w-[244px]', // No min-width on mobile, 244px on desktop
             'grow',
             'p-4', // 16px padding
             className
@@ -263,8 +264,9 @@ export const NavigationCardItem = React.forwardRef<HTMLDivElement, NavigationCar
             'rounded-2xl', // 16px
             'overflow-hidden',
             'relative',
-            'min-w-[244px]',
-            columns === '3' ? 'h-[483px]' : '',
+            'min-w-0 md:min-w-[244px]', // No min-width on mobile, 244px on desktop
+            'h-auto', // Auto height on mobile
+            columns === '3' ? 'md:h-[483px]' : '', // Fixed height only on desktop
             'grow',
             className
           )}
