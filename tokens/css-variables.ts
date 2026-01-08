@@ -51,7 +51,7 @@ export function generateCSSVariables(): string {
   
   // Font families (join arrays)
   Object.entries(primitiveTypography.fontFamily).forEach(([key, value]) => {
-    typographyVars[`font-family-${key}`] = Array.isArray(value) ? value.join(', ') : value;
+    typographyVars[`font-family-${key}`] = Array.isArray(value) ? value.join(', ') : String(value);
   });
   
   // Font weights

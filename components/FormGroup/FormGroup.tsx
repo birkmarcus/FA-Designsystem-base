@@ -317,7 +317,7 @@ export const FormGroup = React.forwardRef<HTMLFormElement, FormGroupProps>(
                     placeholder={field.placeholder}
                     icon={field.icon}
                     options={field.options || []}
-                    onChange={(value) => field.onChange?.(value)}
+                    onChange={(value: string) => field.onChange?.(value)}
                     {...field.inputProps}
                   />
                 </div>

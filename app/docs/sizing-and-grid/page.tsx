@@ -2,6 +2,16 @@
 
 import { useState } from 'react';
 
+// Type definitions for layout patterns
+type PatternBlock = {
+  label: string;
+  cols: number;
+};
+
+type LayoutPattern = 
+  | { label: string; cols: number; vertical: boolean }
+  | { label: string; cols: number; next?: PatternBlock; next2?: PatternBlock; next3?: PatternBlock };
+
 // Grid system specifications
 const gridSpecs = {
   mobile: {
@@ -121,7 +131,7 @@ export default function SizingAndGridPage() {
           <div className="relative space-y-4" style={{ marginTop: '24px' }}>
             {patterns.map((pattern, idx) => {
               // For mobile vertical stacking, render full width blocks
-              if (breakpoint === 'mobile' && pattern.vertical) {
+              if (breakpoint === 'mobile' && 'vertical' in pattern && pattern.vertical) {
                 return (
                   <div key={idx} className="w-full">
                     <div
@@ -134,7 +144,8 @@ export default function SizingAndGridPage() {
               }
               
               // For horizontal layouts
-              const totalCols = pattern.cols + (pattern.next?.cols || 0) + (pattern.next2?.cols || 0) + (pattern.next3?.cols || 0);
+              const patternWithNext = pattern as LayoutPattern & { next?: PatternBlock; next2?: PatternBlock; next3?: PatternBlock };
+              const totalCols = pattern.cols + (patternWithNext.next?.cols || 0) + (patternWithNext.next2?.cols || 0) + (patternWithNext.next3?.cols || 0);
               const colWidth = `calc((100% - ${(totalCols - 1) * spec.gap}px) / ${totalCols} * ${pattern.cols} + ${(pattern.cols - 1) * spec.gap}px)`;
               
               return (
@@ -152,43 +163,43 @@ export default function SizingAndGridPage() {
                   </div>
                   
                   {/* Next block */}
-                  {pattern.next && (
+                  {patternWithNext.next && (
                     <>
                       <div
                         className="bg-white border border-[#ebebec] rounded-xl p-6 shadow-[0px_1px_4px_0px_rgba(12,12,13,0.1),0px_1px_4px_0px_rgba(12,12,13,0.05)] flex items-center justify-center min-h-[70px]"
                         style={{ 
-                          width: `calc((100% - ${(totalCols - 1) * spec.gap}px) / ${totalCols} * ${pattern.next.cols} + ${(pattern.next.cols - 1) * spec.gap}px)` 
+                          width: `calc((100% - ${(totalCols - 1) * spec.gap}px) / ${totalCols} * ${patternWithNext.next.cols} + ${(patternWithNext.next.cols - 1) * spec.gap}px)` 
                         }}
                       >
-                        <span className="font-bold text-base text-[#000020] font-mono">{pattern.next.label}</span>
+                        <span className="font-bold text-base text-[#000020] font-mono">{patternWithNext.next.label}</span>
                       </div>
                     </>
                   )}
                   
                   {/* Next2 block */}
-                  {pattern.next2 && (
+                  {patternWithNext.next2 && (
                     <>
                       <div
                         className="bg-white border border-[#ebebec] rounded-xl p-6 shadow-[0px_1px_4px_0px_rgba(12,12,13,0.1),0px_1px_4px_0px_rgba(12,12,13,0.05)] flex items-center justify-center min-h-[70px]"
                         style={{ 
-                          width: `calc((100% - ${(totalCols - 1) * spec.gap}px) / ${totalCols} * ${pattern.next2.cols} + ${(pattern.next2.cols - 1) * spec.gap}px)` 
+                          width: `calc((100% - ${(totalCols - 1) * spec.gap}px) / ${totalCols} * ${patternWithNext.next2.cols} + ${(patternWithNext.next2.cols - 1) * spec.gap}px)` 
                         }}
                       >
-                        <span className="font-bold text-base text-[#000020] font-mono">{pattern.next2.label}</span>
+                        <span className="font-bold text-base text-[#000020] font-mono">{patternWithNext.next2.label}</span>
                       </div>
                     </>
                   )}
                   
                   {/* Next3 block */}
-                  {pattern.next3 && (
+                  {patternWithNext.next3 && (
                     <>
                       <div
                         className="bg-white border border-[#ebebec] rounded-xl p-6 shadow-[0px_1px_4px_0px_rgba(12,12,13,0.1),0px_1px_4px_0px_rgba(12,12,13,0.05)] flex items-center justify-center min-h-[70px]"
                         style={{ 
-                          width: `calc((100% - ${(totalCols - 1) * spec.gap}px) / ${totalCols} * ${pattern.next3.cols} + ${(pattern.next3.cols - 1) * spec.gap}px)` 
+                          width: `calc((100% - ${(totalCols - 1) * spec.gap}px) / ${totalCols} * ${patternWithNext.next3.cols} + ${(patternWithNext.next3.cols - 1) * spec.gap}px)` 
                         }}
                       >
-                        <span className="font-bold text-base text-[#000020] font-mono">{pattern.next3.label}</span>
+                        <span className="font-bold text-base text-[#000020] font-mono">{patternWithNext.next3.label}</span>
                       </div>
                     </>
                   )}

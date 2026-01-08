@@ -1,6 +1,195 @@
 import Link from 'next/link';
 
 export default function DocsOverview() {
+  const categories = [
+    {
+      name: 'Foundation',
+      description: 'Design tokens and base styles',
+      components: [
+        {
+          href: '/docs/colors',
+          title: 'Colors',
+          description: 'Complete color palette with primitives and semantic tokens.',
+        },
+        {
+          href: '/docs/typography',
+          title: 'Typography',
+          description: 'Type scale, font families, and text styles.',
+        },
+        {
+          href: '/docs/sizing-and-grid',
+          title: 'Sizing and Grid',
+          description: 'Spacing system, layout grid, and sizing tokens.',
+        },
+      ],
+    },
+    {
+      name: 'Actions',
+      description: 'Interactive buttons and triggers',
+      components: [
+        {
+          href: '/docs/buttons',
+          title: 'Buttons',
+          description: 'Button, IconButton, and NavigationButton components with multiple variants and states.',
+        },
+        {
+          href: '/docs/list-items',
+          title: 'List Items',
+          description: 'ListItem and DropdownItem components for navigation and dropdowns.',
+        },
+      ],
+    },
+    {
+      name: 'Forms',
+      description: 'Form inputs and fields',
+      components: [
+        {
+          href: '/docs/form-inputs',
+          title: 'Form Inputs',
+          description: 'Checkbox, Radio, Switch, and CheckboxGroup components.',
+        },
+        {
+          href: '/docs/input-fields',
+          title: 'Input Fields',
+          description: 'InputField component with Input and TextArea types, multiple states, and validation feedback.',
+        },
+        {
+          href: '/docs/search-fields',
+          title: 'Search Fields',
+          description: 'SearchField component with search icon and clear button.',
+        },
+        {
+          href: '/docs/dropdowns',
+          title: 'Dropdowns',
+          description: 'Dropdown component with single and multiselect support.',
+        },
+        {
+          href: '/docs/group-fields',
+          title: 'Group Fields',
+          description: 'GroupField component for grouping radio buttons or checkboxes.',
+        },
+        {
+          href: '/docs/form-groups',
+          title: 'Form Groups',
+          description: 'FormGroup component for organizing form fields with labels and validation.',
+        },
+      ],
+    },
+    {
+      name: 'Navigation',
+      description: 'Navigation components',
+      components: [
+        {
+          href: '/docs/breadcrumbs',
+          title: 'Breadcrumbs',
+          description: 'Breadcrumb navigation component for showing the current page hierarchy with home icon, pages, and active state.',
+        },
+        {
+          href: '/docs/pagination',
+          title: 'Pagination',
+          description: 'Pagination component with three variants (Default, Simple, Group) and multiple alignment options.',
+        },
+        {
+          href: '/docs/carousel-pagination',
+          title: 'Carousel Pagination',
+          description: 'Carousel pagination components including dots, pagination groups, and navigation arrows.',
+        },
+        {
+          href: '/docs/tabs',
+          title: 'Tabs',
+          description: 'Tab and TabGroup components with multiple variants and states.',
+        },
+        {
+          href: '/docs/tab-menu',
+          title: 'Tab Menu',
+          description: 'TabMenu component with fixed-width and equal-width variants.',
+        },
+      ],
+    },
+    {
+      name: 'Content',
+      description: 'Content display components',
+      components: [
+        {
+          href: '/docs/text-block',
+          title: 'Text Block',
+          description: 'TextBlock component for displaying content with headings and CTAs.',
+        },
+        {
+          href: '/docs/content',
+          title: 'Content',
+          description: 'Content component for structured content display.',
+        },
+        {
+          href: '/docs/content-card',
+          title: 'Content Card',
+          description: 'ContentCard component for displaying card-based content.',
+        },
+        {
+          href: '/docs/hero',
+          title: 'Hero',
+          description: 'Hero component for prominent page headers and introductions.',
+        },
+        {
+          href: '/docs/cta',
+          title: 'CTA',
+          description: 'Call-to-action component with Vertical, Horizontal, and Newsletter layouts.',
+        },
+        {
+          href: '/docs/faq',
+          title: 'FAQ',
+          description: 'Frequently Asked Questions component with header section and collapsible FAQ items.',
+        },
+        {
+          href: '/docs/info',
+          title: 'Info',
+          description: 'Info component for displaying informational content with icons.',
+        },
+        {
+          href: '/docs/navigation-cards',
+          title: 'Navigation Cards',
+          description: 'NavigationCards component for card-based navigation layouts.',
+        },
+        {
+          href: '/docs/image-format',
+          title: 'Image Format',
+          description: 'ImageFormat component for displaying images with various formats and aspect ratios.',
+        },
+      ],
+    },
+    {
+      name: 'Feedback',
+      description: 'Feedback and notification components',
+      components: [
+        {
+          href: '/docs/tooltips',
+          title: 'Tooltips',
+          description: 'Tooltip component with multiple variants and positioning options.',
+        },
+        {
+          href: '/docs/badges',
+          title: 'Badges',
+          description: 'Badge component for labels, status indicators, and notifications.',
+        },
+        {
+          href: '/docs/banner',
+          title: 'Banner',
+          description: 'Banner component for displaying important messages and announcements.',
+        },
+        {
+          href: '/docs/accordions',
+          title: 'Accordions',
+          description: 'Accordion component for collapsible content sections.',
+        },
+        {
+          href: '/docs/icon-wrapper',
+          title: 'Icon Wrapper',
+          description: 'IconWrapper component for consistent icon display and sizing.',
+        },
+      ],
+    },
+  ];
+
   return (
     <div>
       <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-4">
@@ -10,175 +199,34 @@ export default function DocsOverview() {
         A comprehensive design system built with React, Next.js, and Tailwind CSS.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        <Link
-          href="/docs/buttons"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Buttons
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Button, IconButton, and NavigationButton components with multiple variants and states.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/list-items"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            List Items
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            ListItem and DropdownItem components for navigation and dropdowns.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/form-inputs"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Form Inputs
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Checkbox, Radio, Switch, and CheckboxGroup components.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/input-fields"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Input Fields
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            InputField component with Input and TextArea types, multiple states, and validation feedback.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/dropdowns"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Dropdowns
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Dropdown component with single and multiselect support.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/search-fields"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Search Fields
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            SearchField component with search icon and clear button.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/text-block"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Text Block
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            TextBlock component for displaying content with headings and CTAs.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/group-fields"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Group Fields
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            GroupField component for grouping radio buttons or checkboxes.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/pagination"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Pagination
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Pagination component with three variants (Default, Simple, Group) and multiple alignment options.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/carousel-pagination"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Carousel Pagination
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Carousel pagination components including dots, pagination groups, and navigation arrows.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/breadcrumbs"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Breadcrumbs
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Breadcrumb navigation component for showing the current page hierarchy with home icon, pages, and active state.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/colors"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            Colors
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Complete color palette with primitives and semantic tokens.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/cta"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            CTA
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Call-to-action component with Vertical, Horizontal, and Newsletter layouts.
-          </p>
-        </Link>
-
-        <Link
-          href="/docs/faq"
-          className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
-        >
-          <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-            FAQ
-          </h2>
-          <p className="text-[var(--color-text-secondary)]">
-            Frequently Asked Questions component with header section and collapsible FAQ items.
-          </p>
-        </Link>
-      </div>
+      {categories.map((category) => (
+        <section key={category.name} className="mb-16">
+          <div className="mb-6">
+            <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-2">
+              {category.name}
+            </h2>
+            <p className="text-[var(--color-text-secondary)]">
+              {category.description}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {category.components.map((component) => (
+              <Link
+                key={component.href}
+                href={component.href}
+                className="p-6 rounded-lg border border-[var(--color-border-default)] hover:border-[var(--color-border-focus)] transition-colors duration-fast"
+              >
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
+                  {component.title}
+                </h3>
+                <p className="text-[var(--color-text-secondary)]">
+                  {component.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ))}
 
       <div className="mt-12 p-6 bg-[var(--color-background-surfaceTertiary)] rounded-lg">
         <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-4">
@@ -194,4 +242,3 @@ export default function DocsOverview() {
     </div>
   );
 }
-

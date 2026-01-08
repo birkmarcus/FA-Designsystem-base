@@ -8,8 +8,9 @@ export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right';
 export interface TooltipProps {
   /**
    * Tooltip content - can be a string or React node
+   * If not provided, will use heading and description instead
    */
-  content: React.ReactNode;
+  content?: React.ReactNode;
   
   /**
    * Optional heading text (shown above description)
@@ -229,28 +230,28 @@ export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
     };
 
     // Clone children with ref and event handlers
-    const triggerElement = React.cloneElement(children, {
-      ref: (node: HTMLElement) => {
+    const triggerElement = React.cloneElement(children as React.ReactElement<any>, {
+      ref: (node: HTMLElement | null) => {
         triggerRef.current = node;
-        if (typeof children.ref === 'function') {
-          children.ref(node);
-        } else if (children.ref) {
-          (children.ref as React.MutableRefObject<HTMLElement>).current = node;
+        if (node && typeof (children as any).ref === 'function') {
+          (children as any).ref(node);
+        } else if (node && (children as any).ref) {
+          ((children as any).ref as React.MutableRefObject<HTMLElement>).current = node;
         }
       },
       onMouseEnter: (e: React.MouseEvent) => {
         handleMouseEnter();
-        children.props.onMouseEnter?.(e);
+        (children as any).props.onMouseEnter?.(e);
       },
       onMouseLeave: (e: React.MouseEvent) => {
         handleMouseLeave();
-        children.props.onMouseLeave?.(e);
+        (children as any).props.onMouseLeave?.(e);
       },
       onClick: (e: React.MouseEvent) => {
         if (!disabled) {
           setIsOpen(!isOpen);
         }
-        children.props.onClick?.(e);
+        (children as any).props.onClick?.(e);
       },
     });
 

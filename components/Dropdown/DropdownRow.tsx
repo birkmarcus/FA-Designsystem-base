@@ -43,6 +43,14 @@ export interface DropdownRowProps {
    */
   onCheckedChange?: (checked: boolean) => void;
   /**
+   * onMouseEnter handler
+   */
+  onMouseEnter?: () => void;
+  /**
+   * onMouseLeave handler
+   */
+  onMouseLeave?: () => void;
+  /**
    * Additional CSS classes
    */
   className?: string;
@@ -65,6 +73,8 @@ export const DropdownRow = React.forwardRef<HTMLDivElement, DropdownRowProps>(
       hovered = false,
       onClick,
       onCheckedChange,
+      onMouseEnter,
+      onMouseLeave,
       className,
     },
     ref
@@ -104,6 +114,8 @@ export const DropdownRow = React.forwardRef<HTMLDivElement, DropdownRowProps>(
         ref={ref}
         className={rowStyles}
         onClick={handleClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         role={checkbox ? 'checkbox' : 'option'}
         aria-checked={checkbox ? checked : undefined}
         aria-disabled={disabled}

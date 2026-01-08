@@ -28,16 +28,8 @@ export default function TextBlockPage() {
               heading="Heading"
               subheading="Subheading"
               body="This is the body text. It can contain multiple paragraphs and provides detailed information about the content."
-              ctaPrimary={
-                <Button variant="primary" size="medium">
-                  Primary CTA
-                </Button>
-              }
-              ctaSecondary={
-                <Button variant="neutral" size="medium">
-                  Secondary CTA
-                </Button>
-              }
+              primaryCta="Primary CTA"
+              secondaryCta="Secondary CTA"
             />
           </div>
 
