@@ -145,14 +145,20 @@ export const NavigationCards = React.forwardRef<HTMLDivElement, NavigationCardsP
 
         {/* Cards Grid */}
         <div className={cardsWrapperStyles}>
-          {items.map((item, index) => (
-            <NavigationCardItem
-              key={index}
-              {...item}
-              variant={cardVariant}
-              columns={columns}
-            />
-          ))}
+          {items.map((item, index) => {
+            // Use stable identifier: imageSrc + title, fallback to index
+            const stableKey = item.imageSrc && item.title 
+              ? `${item.imageSrc}-${item.title}` 
+              : item.imageSrc || item.title || `card-${index}`;
+            return (
+              <NavigationCardItem
+                key={stableKey}
+                {...item}
+                variant={cardVariant}
+                columns={columns}
+              />
+            );
+          })}
         </div>
 
         {/* Primary Action Button */}

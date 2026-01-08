@@ -141,15 +141,15 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         aria-labelledby={heading ? 'modal-heading' : undefined}
       >
         {/* Backdrop */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-[var(--color-overlay-backdrop)]" />
         
         {/* Modal Content */}
         <div
           ref={ref}
           className={cn(
             'relative',
-            'bg-white',
-            'border border-[#ebebec]',
+            'bg-[var(--color-background-surface)]',
+            'border border-[var(--color-border-default)]',
             'rounded-xl', // 12px border radius
             'px-4', // 16px horizontal padding
             'py-6', // 24px vertical padding

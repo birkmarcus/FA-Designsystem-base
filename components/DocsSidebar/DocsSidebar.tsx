@@ -153,6 +153,7 @@ export function DocsSidebar() {
             return (
               <div key={section.label}>
                 <button
+                  type="button"
                   onClick={() => toggleGroup(section.label)}
                   className={cn(
                     'w-full flex items-start justify-start gap-2 px-3 py-2 rounded-lg text-xs font-semibold text-[var(--color-text-tertiary)] uppercase tracking-wider',

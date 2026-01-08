@@ -168,7 +168,7 @@ export const CTA = React.forwardRef<HTMLDivElement, CTAProps>(
               {heading && (
                 <div className={cn('font-primary font-semibold', headingSize, 'text-[var(--color-text-primary)] w-full')}>
                   {heading.split('\n').map((line, index) => (
-                    <p key={index} className={index === 0 ? 'mb-0' : ''}>
+                    <p key={`${line}-${index}`} className={index === 0 ? 'mb-0' : ''}>
                       {line}
                     </p>
                   ))}

@@ -58,6 +58,10 @@ export const semanticColors = {
     primary: '#000020', // Icon/primary from Figma
     disabled: '#9d9da1', // Icon/disabled from Figma
   },
+  overlay: {
+    backdrop: 'rgba(0, 0, 0, 0.5)', // Modal/backdrop overlay (50% black)
+    backdropSubtle: 'rgba(0, 0, 0, 0.48)', // Subtle backdrop overlay (48% black)
+  },
   status: {
     success: primitiveColors.success[500],
     successBackground: primitiveColors.success[50],

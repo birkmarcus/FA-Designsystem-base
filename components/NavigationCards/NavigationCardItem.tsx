@@ -144,6 +144,7 @@ export const NavigationCardItem = React.forwardRef<HTMLDivElement, NavigationCar
           {(linkLabel || onLinkClick) && (
             <div className="flex gap-4 items-start p-4 w-full">
               <button
+                type="button"
                 onClick={onLinkClick}
                 className={cn(
                   'flex gap-2 items-center justify-center',
@@ -279,7 +280,7 @@ export const NavigationCardItem = React.forwardRef<HTMLDivElement, NavigationCar
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-black/48" aria-hidden="true" />
+              <div className="absolute inset-0 bg-[var(--color-overlay-backdropSubtle)]" aria-hidden="true" />
             </div>
           )}
 
