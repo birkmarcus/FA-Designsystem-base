@@ -188,6 +188,22 @@ export default function DocsOverview() {
         },
       ],
     },
+    {
+      name: 'Product components',
+      description: 'Product-specific components and patterns',
+      components: [
+        {
+          href: '/docs/sidebar-navigation',
+          title: 'Sidebar Navigation',
+          description: 'Sidebar navigation component with Default and Slim variants. Supports expandable sub-navigation, badges, and account info.',
+        },
+        {
+          href: '/docs/page-header',
+          title: 'Page Header',
+          description: 'Comprehensive page header component with breadcrumbs, title, badge, help text, action buttons, tabs, and search functionality.',
+        },
+      ],
+    },
   ];
 
   return (

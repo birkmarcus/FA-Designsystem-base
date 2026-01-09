@@ -110,16 +110,18 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
 
     // Items container styles
     const itemsContainerStyles = cn(
-      'flex',
-      layout === 'stats' && alignment === 'center' ? 'flex-wrap md:flex-nowrap' : 'flex-wrap', // Wrap on mobile, nowrap on desktop for stats-center
+      layout === 'card-and-cta' ? 'grid' : 'flex',
+      layout === 'card-and-cta' && 'grid-cols-[repeat(2,1fr)] grid-rows-[repeat(2,1fr)]',
+      layout === 'card-and-cta' && 'justify-start flex-wrap', // justify-content: flex-start, flex-wrap: wrap
+      layout === 'stats' && alignment === 'center' ? 'flex-wrap' : layout !== 'card-and-cta' && 'flex-wrap', // Wrap on all breakpoints for stats-center
       'w-full',
       layout === 'card-and-cta' && 'gap-4', // 16px gap
       layout === 'list-items' && 'gap-4 md:gap-8', // 16px mobile, 32px desktop gap
       layout === 'link-cards' && 'gap-4', // 16px gap
       layout === 'stats' && 'gap-4 md:gap-8', // 16px mobile, 32px desktop gap
-      alignment === 'center' && 'justify-center',
-      alignment === 'left' && 'justify-start',
-      alignment === 'grid' && 'justify-start',
+      alignment === 'center' && layout !== 'card-and-cta' && 'justify-center',
+      alignment === 'left' && layout !== 'card-and-cta' && 'justify-start',
+      alignment === 'grid' && layout !== 'card-and-cta' && 'justify-start',
     );
 
     // Stats Grid layout - special handling
@@ -147,7 +149,7 @@ export const Info = React.forwardRef<HTMLDivElement, InfoProps>(
           </div>
 
           {/* Stats Grid with Image */}
-          <div className="flex flex-wrap gap-4 md:gap-8 items-center w-full">
+          <div className="flex flex-nowrap gap-4 md:gap-8 items-center w-full">
             {/* Image */}
             {imageSrc && (
               <div className="basis-0 grow min-w-0 md:min-w-[327px] aspect-[456/256] h-auto md:h-[184px] relative overflow-hidden">

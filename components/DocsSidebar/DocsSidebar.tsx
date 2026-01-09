@@ -68,6 +68,13 @@ const navSections: NavSection[] = [
       { label: 'Tab Menu', href: '/docs/tab-menu' },
     ],
   },
+  {
+    label: 'Product components',
+    items: [
+      { label: 'Sidebar Navigation', href: '/docs/sidebar-navigation' },
+      { label: 'Page Header', href: '/docs/page-header' },
+    ],
+  },
 ];
 
 export function DocsSidebar() {

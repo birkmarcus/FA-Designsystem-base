@@ -27,7 +27,7 @@ export default function NavigationCardsPage() {
         <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-6">
           Default Variant - 4 Columns
         </h2>
-        <div className="bg-gray-50 pt-8 pr-8 pb-8 rounded-lg pl-0">
+        <div className="bg-[var(--color-background-surfaceTertiary)] pt-8 pr-8 pb-8 rounded-lg pl-0">
           <NavigationCards
             cardVariant="default"
             columns="4"
