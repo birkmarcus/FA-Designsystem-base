@@ -14,7 +14,7 @@ export default function PageHeaderPage() {
     { label: '', type: 'icon' as const },
     { label: 'Pagen name' },
     { label: '...', type: 'intermediate' as const },
-    { label: 'Pagen name', type: 'active page' as const },
+    { label: 'Pagen name', type: 'active' as const },
   ];
 
   // Tab items
